@@ -1,10 +1,9 @@
-//src/components/NavLinks.tsx
+// src/components/NavLinks.tsx
 "use client";
 
 import {
   UserGroupIcon,
   HomeIcon,
-  //DocumentDuplicateIcon,
   UsersIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
@@ -15,12 +14,16 @@ const links = [
   {
     name: "Users",
     href: "/dashboard/users",
-    icon: UsersIcon, //DocumentDuplicateIcon,
+    icon: UsersIcon,
   },
   { name: "Customers", href: "/dashboard/customers", icon: UserGroupIcon },
 ];
 
-export default function NavLinks() {
+interface NavLinksProps {
+  isOpen: boolean;
+}
+
+export default function NavLinks({ isOpen }: NavLinksProps) {
   const pathname = usePathname();
 
   return (
@@ -44,7 +47,7 @@ export default function NavLinks() {
             }`}
           >
             <LinkIcon className="h-6 w-6" />
-            <span>{link.name}</span>
+            {isOpen && <span>{link.name}</span>}
           </Link>
         );
       })}
