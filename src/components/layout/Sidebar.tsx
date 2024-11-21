@@ -8,10 +8,10 @@ export default function SideNav() {
   return (
     <div className="flex flex-col h-full fixed top-0 left-0 z-10 space-y-1">
       <Link
-        className="flex h-20 items-end justify-start bg-blue-600 p-4 md:h-16"
+        className="flex h-20 items-end justify-start bg-gray-50 dark:bg-gray-800 p-4 md:h-16"
         href="/"
       >
-        <div className="w-32 text-white md:w-40">
+        <div className="w-32 text-gray-900 dark:text-white md:w-40">
           {/* <Logo /> */}
           {/* Daha sonra logo konulacak */}
           Logo
