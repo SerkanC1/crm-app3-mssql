@@ -1,7 +1,7 @@
 // src/app/dashboard/layout.tsx
 
-import Sidebar from "@/components/Sidebar";
-import Header from "@/components/Header";
+import Sidebar from "@/components/layout/Sidebar";
+import Header from "@/components/layout/Header";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

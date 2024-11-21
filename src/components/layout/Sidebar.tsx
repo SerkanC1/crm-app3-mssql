@@ -1,12 +1,12 @@
 // src/components/Sidebar.tsx
 
 import Link from "next/link";
-import NavLinks from "./NavLinks";
+import NavLinks from "../navigation/NavLinks";
 import { PowerIcon } from "@heroicons/react/24/outline"; // PowerIcon'u içe aktarıyoruz
 
 export default function SideNav() {
   return (
-    <div className="flex flex-col h-full bg-white dark:bg-gray-900 fixed top-0 left-0 z-10 space-y-2">
+    <div className="flex flex-col h-full fixed top-0 left-0 z-10 space-y-1">
       <Link
         className="flex h-20 items-end justify-start bg-blue-600 p-4 md:h-16"
         href="/"
@@ -19,7 +19,7 @@ export default function SideNav() {
       </Link>
 
       {/* Sidebar butonları */}
-      <div>
+      <div className="space-y-1">
         <NavLinks />
         <form
           action={async () => {
