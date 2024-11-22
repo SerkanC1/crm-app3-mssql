@@ -48,7 +48,7 @@ class Database {
       !process.env.DATABASE_SERVER ||
       !process.env.DATABASE_NAME
     ) {
-      throw new Error("Database configuration is missing");
+      throw new Error("Veritabanı yapılandırması eksik");
     }
   }
 
@@ -69,15 +69,15 @@ class Database {
     if (!this.pool) {
       try {
         this.pool = await new ConnectionPool(this.config).connect();
-        console.log("Database pool created");
+        console.log("Veritabanı havuzu oluşturuldu");
 
-        // Pool error handling
+        // Havuz hata yönetimi
         this.pool.on("error", (err) => {
-          console.error("Database pool error:", err);
+          console.error("Veritabanı havuz hatası:", err);
           this.pool = null;
         });
       } catch (error) {
-        console.error("Failed to create database pool:", error);
+        console.error("Veritabanı havuzu oluşturulamadı:", error);
         throw error;
       }
     }
@@ -85,7 +85,7 @@ class Database {
   }
 
   /**
-   * Bağlantıyı test eder
+   * Veritabanı bağlantısını test eder
    */
   public async testConnection(): Promise<boolean> {
     try {
@@ -93,7 +93,7 @@ class Database {
       await pool.request().query("SELECT 1");
       return true;
     } catch (error) {
-      console.error("Database connection test failed:", error);
+      console.error("Veritabanı bağlantı testi başarısız:", error);
       return false;
     }
   }
@@ -135,7 +135,7 @@ class Database {
       const result = await request.query(query);
       return result.recordset as unknown as T;
     } catch (error) {
-      console.error("Query execution failed:", error);
+      console.error("Sorgu çalıştırma başarısız:", error);
       throw error;
     }
   }
@@ -148,9 +148,9 @@ class Database {
       try {
         await this.pool.close();
         this.pool = null;
-        console.log("Database pool closed");
+        console.log("Veritabanı havuzu kapatıldı");
       } catch (error) {
-        console.error("Failed to close database pool:", error);
+        console.error("Veritabanı havuzu kapatılamadı:", error);
         throw error;
       }
     }

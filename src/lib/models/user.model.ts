@@ -4,6 +4,9 @@ import { BaseModel, ModelValidationError, ValidationError } from "./base.model";
 import db from "../db";
 import sql from "mssql";
 
+/**
+ * Kullanıcı arayüzü
+ */
 export interface IUser extends BaseModel {
   UserName: string;
   Password_: string;
@@ -19,10 +22,13 @@ export interface IUser extends BaseModel {
   OtherPackingsColumns?: number;
 }
 
+/**
+ * Kullanıcı sınıfı
+ */
 export class User implements IUser {
   id: number = 0; // BaseModel'den gelen id property'si için başlangıç değeri
-  UserName: string = ''; // başlangıç değeri eklendi
-  Password_: string = ''; // başlangıç değeri eklendi
+  UserName: string = ""; // başlangıç değeri eklendi
+  Password_: string = ""; // başlangıç değeri eklendi
   NameSurname?: string;
   CreateDate?: Date;
   LastActive?: Date;
@@ -34,10 +40,13 @@ export class User implements IUser {
   ItemsColumns?: number;
   OtherPackingsColumns?: number;
 
+  /**
+   * Kullanıcı sınıfı constructor'ı
+   */
   constructor(data: Partial<IUser>) {
     // Required fields için explicit kontrol
-    this.UserName = data.UserName || '';
-    this.Password_ = data.Password_ || '';
+    this.UserName = data.UserName || "";
+    this.Password_ = data.Password_ || "";
     this.Admin_ = data.Admin_ ?? false;
     this.Active = data.Active ?? false;
 
@@ -48,14 +57,14 @@ export class User implements IUser {
   /**
    * Model doğrulaması yapar
    */
-  validate(): boolean { // BaseModel'den gelen validate methodu implementasyonu
+  validate(): boolean {
     const errors: ModelValidationError[] = [];
 
     if (!this.UserName) {
-      errors.push({ field: 'UserName', message: 'Username is required' });
+      errors.push({ field: "UserName", message: "Username is required" });
     }
     if (!this.Password_) {
-      errors.push({ field: 'Password_', message: 'Password is required' });
+      errors.push({ field: "Password_", message: "Password is required" });
     }
 
     if (errors.length > 0) {
