@@ -14,8 +14,8 @@ import { usePathname } from "next/navigation";
 
 const links = [
   { name: "Ana Sayfa", href: "/dashboard", icon: HomeIcon },
-  { name: "Users", href: "/dashboard/users", icon: UsersIcon },
-  { name: "Customers", href: "/dashboard/customers", icon: UserGroupIcon },
+  { name: "Kullanıcılar", href: "/dashboard/users", icon: UsersIcon },
+  { name: "Cari Hesaplar", href: "/dashboard/customers", icon: UserGroupIcon },
 ];
 
 export default function SideNav() {
