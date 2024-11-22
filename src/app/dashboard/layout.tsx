@@ -9,7 +9,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Sidebar />
       <div className="flex flex-col w-full ml-0">
         <Header />
-        <main className="flex flex-col flex-grow p-8 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+        <main className="flex flex-col flex-grow p-4 border-2 border-gray-200 dark:border-gray-700 rounded-lg ml-12 m-1">
           {children}
         </main>
       </div>
