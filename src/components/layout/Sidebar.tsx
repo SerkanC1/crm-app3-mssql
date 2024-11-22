@@ -95,7 +95,7 @@ export default function SideNav() {
                   isOpen ? "clip-path-slide-right" : "clip-path-slide-left"
                 }`}
               >
-                Sign Out
+                Çıkış
               </span>
             </div>
           </button>

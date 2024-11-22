@@ -9,13 +9,13 @@ export default function Header() {
   const getPageTitle = () => {
     switch (pathname) {
       case "/dashboard":
-        return "Dashboard";
+        return "Ana Sayfa";
       case "/dashboard/users":
-        return "Users bu bir deneme yazısıdır. bakalım bu text ne kadar uzayacak"; //ekrana tam ortalanması için ne yapmam gerekiyor?
+        return "Kullanıcılar"; 
       case "/dashboard/customers":
-        return "Customers";
+        return "Cari Hesaplar";
       default:
-        return "Dashboard";
+        return "Ana Sayfa";
     }
   };
 
